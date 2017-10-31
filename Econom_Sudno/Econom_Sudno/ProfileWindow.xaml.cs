@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+using Econom_Sudno.Models;
+using Econom_Sudno.ViewModels;
+
+namespace Econom_Sudno
+{
+    /// <summary>
+    /// Логика взаимодействия для ProfileWindow.xaml
+    /// </summary>
+    public partial class ProfileWindow : Window
+    {
+        public ProfileWindow(User user,bool createUser)
+        {
+            InitializeComponent();
+            DataContext = new ProfileWindow_ViewModel(user, this, createUser);
+        }
+        public ProfileWindow(UserApplication user)
+        {
+            InitializeComponent();
+            DataContext = new ProfileWindow_ViewModel(user, this);
+        }
+    }
+}
